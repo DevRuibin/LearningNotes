@@ -14,3 +14,4 @@
 4. PythonBasicStudy/
 
 	深入理解python的基础，灵活使用python
+	1. Python 类的特殊方法.md Python的特殊方法
