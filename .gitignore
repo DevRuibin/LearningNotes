@@ -1,6 +1,7 @@
 .idea/
 HEAD_FIRST/headfirst/
 *.iml
+out/
 
 # Compiled class file
 *.class
