@@ -95,3 +95,10 @@
     4. git init --bare /sample.git
     5. chown -R git:git /sample.git
     6. 禁用shell登录git用户
+   
+   
+   
+## append
+   git reset –soft ： 不改变暂存区， 仅仅将Commit回退
+   git reset –mixed : 不改变工作区，覆盖暂存区
+   git reset –hard : 改变工作区，覆盖暂存区
