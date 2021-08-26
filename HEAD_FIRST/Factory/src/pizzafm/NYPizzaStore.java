@@ -2,70 +2,23 @@ package pizzafm;
 
 public class NYPizzaStore extends PizzaStore {
 
+    @Override
     Pizza createPizza(String item) {
+        Pizza pizza;
+        PizzaIngredientFactory factory = new NYPizzaIngredientFactory();
         if (item.equals("cheese")) {
-            return new NYStyleCheesePizza();
+            pizza = new CheesePizza(factory);
+            pizza.setName("New York Style cheese Pizza");
         } else if (item.equals("veggie")) {
-            return new NYStyleVeggiePizza();
+            pizza = new CheesePizza(factory);
+            pizza.setName("New York Style Veggie Pizza");
         } else if (item.equals("clam")) {
-            return new NYStyleClamPizza();
+            pizza = new ClamPizza(factory);
+            pizza.setName("New York Style Clam Pizza");
         } else if (item.equals("pepperoni")) {
-            return new NYStylePepperoniPizza();
+            pizza = new PepperoniPizza(factory);
+            pizza.setName("New York Style Pepperoni Pizza");
         } else return null;
-    }
-}
-
-class NYStyleClamPizza extends Pizza {
-
-    public NYStyleClamPizza() {
-        name = "NY Style Clam Pizza";
-        dough = "Thin Crust Dough";
-        sauce = "Marinara Sauce";
-
-        toppings.add("Grated Reggiano Cheese");
-        toppings.add("Fresh Clams from Long Island Sound");
-    }
-}
-
-class NYStylePepperoniPizza extends Pizza {
-
-    public NYStylePepperoniPizza() {
-        name = "NY Style Pepperoni Pizza";
-        dough = "Thin Crust Dough";
-        sauce = "Marinara Sauce";
-
-        toppings.add("Grated Reggiano Cheese");
-        toppings.add("Sliced Pepperoni");
-        toppings.add("Garlic");
-        toppings.add("Onion");
-        toppings.add("Mushrooms");
-        toppings.add("Red Pepper");
-    }
-}
-
-
-class NYStyleVeggiePizza extends Pizza {
-
-    public NYStyleVeggiePizza() {
-        name = "NY Style Veggie Pizza";
-        dough = "Thin Crust Dough";
-        sauce = "Marinara Sauce";
-
-        toppings.add("Grated Reggiano Cheese");
-        toppings.add("Garlic");
-        toppings.add("Onion");
-        toppings.add("Mushrooms");
-        toppings.add("Red Pepper");
-    }
-}
-
-class NYStyleCheesePizza extends Pizza {
-
-    public NYStyleCheesePizza() {
-        name = "NY Style Sauce and Cheese Pizza";
-        dough = "Thin Crust Dough";
-        sauce = "Marinara Sauce";
-
-        toppings.add("Grated Reggiano Cheese");
+        return pizza;
     }
 }
