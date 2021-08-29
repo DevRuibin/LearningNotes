@@ -200,4 +200,8 @@
        ```
 
        
+## error
 
+ModuleNotFoundError: No module named 'distutils.spawn'
+
+`apt-get install python3-distutils`
