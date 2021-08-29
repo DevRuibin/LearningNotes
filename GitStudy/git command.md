@@ -102,3 +102,7 @@
    git reset –soft ： 不改变暂存区， 仅仅将Commit回退
    git reset –mixed : 不改变工作区，覆盖暂存区
    git reset –hard : 改变工作区，覆盖暂存区
+   
+## ssh key
+   
+   ssh-keygen
