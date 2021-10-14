@@ -2,6 +2,8 @@
 HEAD_FIRST/headfirst/
 *.iml
 out/
+__pychche__
+celery/
 
 # Compiled class file
 *.class
