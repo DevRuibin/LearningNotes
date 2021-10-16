@@ -100,47 +100,49 @@
             del key1, key2
          
 14. 字符串
-   1. 将字符串存入redis中， set key value
-      set name zhangsan
-      如果在set时候，key已经存在了， 那么会发生覆盖
-   2. 从Redis中获取string类型数据
-      get name
-   3. 追加字符串, 不存在也没事，返回值是字符串的长度
-      append key value
-   4. 求字符串数据的长度
-      strlen key
-   5. 字符串数值进行加一运算 如果key不存在，那么先赋值为0， 在加一。如果存在但是是字符串，报错。
-      incr age;
-   6. decr key 减一运算
-   7. 指定加指定的值 incrby key offset
-      incrby age 10; 将年龄加10
-      不存在创建，复制为零，再便宜
-   8. 指定减指定的值 decrby key offset
-   9. 获取字符串中的字字符串 getrange key startIndex endIndex
-      getrange name 1 3 下标是从零开始，从左到右， 包括最后一个endIndex, 只是获取，但是不会改变数据库中的值
-      下表也可以是负数，负数自右至左
-   10. setrange key startIndex value 用value覆盖从index开始的字符串， 能覆盖几个字符，就覆盖几个字符
-   11. setex 设置字符串的同时，设置字符串的最大哦生命周期 set key seconds value
-      1. set phone 20 19001358352
-   12. setnx: 如果存在那么就不会覆盖了， 返回0表示失败设置， 1成功
-   14. mset k1 v1 k2 v2 k3 v3
-   15. mget k1 k2 k3 k4 批量获取
-   16. msetnx 批量设置，在存在的时候就所有不会设置了，要不都成功
    
+      1. 将字符串存入redis中， set key value
+         set name zhangsan
+         如果在set时候，key已经存在了， 那么会发生覆盖
+      2. 从Redis中获取string类型数据
+         get name
+      3. 追加字符串, 不存在也没事，返回值是字符串的长度
+         append key value
+      4. 求字符串数据的长度
+         strlen key
+      5. 字符串数值进行加一运算 如果key不存在，那么先赋值为0， 在加一。如果存在但是是字符串，报错。
+         incr age;
+      6. decr key 减一运算
+      7. 指定加指定的值 incrby key offset
+         incrby age 10; 将年龄加10
+         不存在创建，复制为零，再便宜
+      8. 指定减指定的值 decrby key offset
+      9. 获取字符串中的字字符串 getrange key startIndex endIndex
+         getrange name 1 3 下标是从零开始，从左到右， 包括最后一个endIndex, 只是获取，但是不会改变数据库中的值
+         下表也可以是负数，负数自右至左
+      10. setrange key startIndex value 用value覆盖从index开始的字符串， 能覆盖几个字符，就覆盖几个字符
+      11. setex 设置字符串的同时，设置字符串的最大哦生命周期 set key seconds value
+         1. set phone 20 19001358352
+      12. setnx: 如果存在那么就不会覆盖了， 返回0表示失败设置， 1成功
+      14. mset k1 v1 k2 v2 k3 v3
+      15. mget k1 k2 k3 k4 批量获取
+      16. msetnx 批量设置，在存在的时候就所有不会设置了，要不都成功
+
 15. 列表
-   左边是表头，右边是表尾
-   一个key多个value
-   每一个元素都有下标，可以是负数
-   1. 将一个或多个值存入列表中的表头, 如果不存在，应该首先创建该列表
-      lpush list01 1 2 3: 存入后是 3 2 1
-   2. 获取指定列表中的元素 lrange list startIndex endIndex
-   3. 在表尾存数据 rpush list01 1 2 3
-   4. lpop key 移除并返回表头元素
-   5. 获取指定元素 lindex key index
-   6. 获取列表长度 llen key
-   7. rpop 移除表尾的最后一个元素并返回
-   8. lrem 移除列表中某一些数据 lrem key value 移除所有value值
-      lrem key count value  最多移除cout个value值，是从表头开始的 如何count<0, 代表从右边开始删除个value值
+   
+      左边是表头，右边是表尾
+      一个key多个value
+      每一个元素都有下标，可以是负数
+      1. 将一个或多个值存入列表中的表头, 如果不存在，应该首先创建该列表
+         lpush list01 1 2 3: 存入后是 3 2 1
+      2. 获取指定列表中的元素 lrange list startIndex endIndex
+      3. 在表尾存数据 rpush list01 1 2 3
+      4. lpop key 移除并返回表头元素
+      5. 获取指定元素 lindex key index
+      6. 获取列表长度 llen key
+      7. rpop 移除表尾的最后一个元素并返回
+      8. lrem 移除列表中某一些数据 lrem key value 移除所有value值
+         lrem key count value  最多移除cout个value值，是从表头开始的 如何count<0, 代表从右边开始删除个value值
       
       
    
