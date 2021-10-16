@@ -73,7 +73,33 @@
 13. 命令
     1. key:
         keys pattern: 查找所有符合通配符好的key
-            keys *: * 
+            keys *: * 匹配零个或者多个字符
+            keys k*: 匹配所有k打头的key
+            keys ?: ? 匹配1个字符
+            keys [abx]: 匹配一个字符，而且必须是中括号中的一个
+        判断某个key是否存在 exists key
+            存在是1， 不存在是0
+        判断多个key是否存在 exists key1, key2, key3
+            返回多少个key存在
+        移动指定key， 到指定的数据库： move key index
+            move hell 1; 将hell移动到 1号数据库
+            但是用的不多，因为一个项目一般使用一个库
+        ttl 查看指定key剩余剩存时间，
+            ttl key:
+               -2 key 不存在
+               -1 key 是永久的
+               正数或者零， key的剩余时间
+        设置key的最大时间 expire key xxxx 单位是s
+            expire name 30 --> 给key 设置30s
+   
+        查看指定key的数据类型 type key
+   
+        修改key 重命名 rename key newkey
+            rename name username
+        删除key
+            del key1, key2
+         
+            
         
     
     
