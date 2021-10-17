@@ -287,13 +287,31 @@
             where id==xxxx and version=100
          ```
       watch: 监控某一个键，当事务执行过程中，此键值对发生变化，那么放弃执行， 否则正常执行
-      unwatch key: 放弃监视某一个键                                                            
+      unwatch key: 放弃监视某一个键   
+            
+22. redis 主从复制
+            1. 提供三台redis服务
+            修改三分配置文件
+            1. bind ip
+            2. poer 6379
+            3. pidfile /var/run/redis_6379.pid
+            4. logfile "6379.log"
+            2. info replication 查看角色
+            在主机上的数据会自动全部同步到从机， 从机上不允许写数据
+            主机待机，从机原地待命，只能读，但是不能写了
+            从机恢复后，需要重新设置主从关系
+            1. 从机上位，从机断开原来的主从关系 slaveof no one.
+            2. 重新设置主从关系 在从机设置 slaveof ip port
+            3. 之前的主机恢复后， 这时候就没有从机了。 它可以变成从机。 从机也可以有从机。
+               如果既是主机又是从机，依旧不能写数据。
+            4. 
                                                                   
-                                                                  
-                                                                  
-                                                                  
-                                                                  
-                                                                  
+23. 哨兵模式
+            1. 可以用来判断主机是否宕机，同时一旦宕机，会自动选择一个从机作为主机
+            2. 提供一个主机的配置文件 sentinel monitor dc-redis 172.17.0.2 6379
+            3. 启动哨兵服务 redis-sentinel path/redis-sentinel.conf
+            4. 当主机恢复后，从属于新的主机
+            5. 
                                                                   
                                                                   
                                                                   
