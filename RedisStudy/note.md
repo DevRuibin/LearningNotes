@@ -213,10 +213,12 @@
        tcp-keepalive : tcp连接保活策略。对于无响应的客户端，会关闭连接，如果设置为0，那么就不会进行保活检测                                                           
     2. 常规配置
         loglevel 日志级别
+            ```                                                      
             # debug (a lot of information, useful for development/testing)
             # verbose (many rarely useful info, but not a mess like the debug level)
             # notice (moderately verbose, what you want in production probably)
-            # warning (only very important / critical messages are logged)                                                          
+            # warning (only very important / critical messages are logged)  
+           ```                                                       
         logfile 指定日志文件  目录文件夹必须存在，但是文件可以自动创建                                                        
         databases 10 默认创建16个数据库                                                         
     3. 安全配置                                                              
@@ -226,16 +228,19 @@
                                                                   
 20. redis 持久化
     1. RDB redis database是redis默认持久化方案， 在指定的时间间隔内，执行指定次数的写操作，则会将内存中的数据写入到磁盘中，缺点是最后几个可能不能持久化
+      ```                                                            
       #   * After 3600 seconds (an hour) if at least 1 key changed
       #   * After 300 seconds (5 minutes) if at least 100 keys changed
       #   * After 60 seconds if at least 10000 keys changed
+      ```                                                            
     2. dbfilenam
        # The filename where to dump the DB
          dbfilename dump.rdb
     3. dir redis持久化数据生成文件保存的目录     默认是redis的启动目录                                                         
     4. AOF 采用操作日志记录下来， 但是它输在了效率上                                                    
         appendonly 是否开启                                                          
-        appendfilename 文件名   
+        appendfilename 文件名  
+         ```                                                         
          # Redis supports three different modes:
          #
          # no: don't fsync, just let the OS flush the data when it wants. Faster.
@@ -258,6 +263,7 @@
          # appendfsync always
          appendfsync everysec
          # appendfsync no
+         ```   
                                                                   
 21. 事务
     把一组数据库指令放在一起执行，保证数据操作的原子性，要么同时成功，要么同时失败。        
